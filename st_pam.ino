@@ -87,4 +87,44 @@ void loop() {
     delay(t_pulse);
   }
 
- 
+  /*
+// CLASSIC PAM 
+for (int j = 0; j<N_RANDOM_SYMBOLS; j +=1){
+  random_index = random(PAM_LEVELS);
+  dacValue = exponentialValues[random_index];
+  analogWrite(DAC_PIN, dacValue);
+  delay(t_pulse);
+  Serial.println(random_index);
+}
+
+// SC-PAM (Monica Figueiredo's Algorithm)
+for (int j = 0; j<N_RANDOM_SYMBOLS; j +=1){
+  for (int level = 0; level<2; level+=1){
+    for (int k=0; k<SC_PAM_K_PARAMETER; k+=1){
+      random_index = random(int(PAM_LEVELS/2));
+      dacValue = exponentialValues[abs(PAM_LEVELS*level-random_index)];
+      analogWrite(DAC_PIN, dacValue);
+      Serial.print(random_index);
+      if (level == 0) Serial.println("(low)");
+      else Serial.println("(high)");
+      delay(t_pulse);
+    }
+  }
+}
+
+// CP PAM (Othman Younus' Algorithm)
+for (int j = 0; j<N_RANDOM_SYMBOLS; j +=1){
+  random_index = random(PAM_LEVELS);
+  dacValue = exponentialValues[random_index];
+  analogWrite(DAC_PIN, dacValue);
+  delay(t_pulse);
+  Serial.println(random_index);
+  dacValue = exponentialValues[PAM_LEVELS-random_index];
+  analogWrite(DAC_PIN, dacValue);
+  Serial.print(PAM_LEVELS-random_index);
+  Serial.println("(SP)");
+  delay(t_pulse);
+}
+*/
+  transmission_no += 1;
+}
